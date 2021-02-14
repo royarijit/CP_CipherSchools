@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int search(int arr[4][4], int n, int x){
+    if(n==0) return -1;
+    int smallest = arr[0][0], largest = arr[n-1][n-1];
+    if (x<smallest || x>largest) return -1;
+
+    int i=0, j = n-1;
+    while (i<n&&j>=0){
+        if(arr[i][j] == x){
+            cout<<"Found at"<<i<<","<<j;
+            return 1;
+        }
+        if (arr[i][j]>x) j--;
+        else i++;
+    }
+    
+    return 0;
+}
+
+int main(){
+    int n;cin>>n;
+    int arr[4][4];
+    for(int i=0;i<4;i++){
+        for(int j=0;j<4;j++){
+            cin>>arr[i][j];
+        }
+    }
+
+}
